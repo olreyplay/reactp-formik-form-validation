@@ -47,6 +47,14 @@ input[type="text"]:focus {
   border: 1px solid #f4f4f4;
 }
 
+span {
+  display: block;
+  color: #ff8a00;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
 button[type="submit"] {
   display: block;
   width: 100%;

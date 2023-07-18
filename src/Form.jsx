@@ -17,7 +17,18 @@ const Form = () => {
       resetForm();
     },
     validate: (values) => {
-      // Perform form field validation
+      let errors = {};
+
+      if (values.username.trim() === "") {
+        errors.username = "Name can not be empty";
+      }
+
+      if (values.occupation.trim() === "") {
+        errors.occupation = "Occupation can not be empty";
+      }
+
+      console.log(errors);
+      return errors;
     },
   });
 
@@ -30,6 +41,9 @@ const Form = () => {
         name="username"
         placeholder="Name"
       />
+      {formik.touched.username && formik.errors.username && (
+        <span>{formik.errors.username}</span>
+      )}
       <input
         onChange={formik.handleChange}
         value={formik.values.occupation}
@@ -37,6 +51,9 @@ const Form = () => {
         name="occupation"
         placeholder="Occupation"
       />
+      {formik.touched.occupation && formik.errors.occupation && (
+        <span>{formik.errors.occupation}</span>
+      )}
       <button type="submit">Submit</button>
     </form>
   );
